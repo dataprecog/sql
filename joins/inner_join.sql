@@ -1,33 +1,20 @@
 --==============================================================================
--- Finding duplicate rows
+-- Inner Join
 --==============================================================================
--- Description.......: SQL Queries to find duplicate rows in database tables.
+-- Description.......: Inner Join
 -- Author............: Data Precog
 -- Email.............: info@dataprecog.com
 -- Date..............: 2000.08.15
 -- Version...........: 1.0
 
 --==============================================================================
--- Finding single-column duplicate rows
+-- Inner Join
 --==============================================================================
-SELECT col1
-  , COUNT(1)
-FROM table_a
-GROUP BY col1
-HAVING COUNT(1) > 1;
-
---==============================================================================
--- Finding multi-column duplicate rows
---==============================================================================
-SELECT col1
-  , col2
-  , coln
-  , COUNT(1)
-FROM table_a
-GROUP BY col1
-  , col2
-  , coln
-HAVING COUNT(1) > 1;
+SELECT a.*
+	, b.*
+FROM table_a a
+INNER JOIN table_b b
+	ON a.column_a = b.column_b;
 
 --==============================================================================
 -- EOF
